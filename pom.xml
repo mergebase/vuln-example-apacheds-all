@@ -18,6 +18,12 @@
    <groupId>org.apache.directory.server</groupId>
    <artifactId>apacheds-all</artifactId>
    <version>1.5.5</version>
+<exclusions>
+	<exclusion>
+		<groupId>*</groupId>
+		<artifactId>*</artifactId>
+	</exclusion>
+</exclusions>
 </dependency>
          
 

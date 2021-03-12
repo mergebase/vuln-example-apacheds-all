@@ -2,56 +2,58 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>com.mergebase.examples</groupId>
+ <version>2021.02.04</version>
+ <artifactId>vuln-example-apacheds-all</artifactId>
+ <packaging>war</packaging>
+ <properties>
+  <failOnMissingWebXml>false</failOnMissingWebXml>
+ </properties>
+ 
+ <dependencies>
 
-<modelVersion>4.0.0</modelVersion>
-<groupId>com.mergebase.examples</groupId>
-<version>2021.02.04</version>
-<artifactId>vuln-example-apacheds-all</artifactId>
-<packaging>war</packaging>
+  <!-- our internal util depedency -->
+  <dependency>
+        <artifactId>util</artifactId>
+        <groupId>com.mergebase</groupId>
+        <version>1.0-SNAPSHOT</version>
+  </dependency>
 
-<properties>
-    <failOnMissingWebXml>false</failOnMissingWebXml>
-</properties>
-
-<dependencies>
-<dependency>
-   <groupId>org.apache.directory.server</groupId>
-   <artifactId>apacheds-all</artifactId>
-   <version>1.5.5</version>
-<exclusions>
-	<exclusion>
-		<groupId>*</groupId>
-		<artifactId>*</artifactId>
-	</exclusion>
-</exclusions>
-</dependency>
-         
-
-<dependency>
-    <groupId>com.jcraft</groupId>
-    <artifactId>jsch</artifactId>
-    <version>0.1.53</version>
-</dependency>
-
-</dependencies>
-
-<build>
-<plugins>
-<plugin>
+  <!-- some popular open source dependencies -->
+  <dependency>
+   <groupId>commons-lang</groupId>
+   <artifactId>commons-lang</artifactId>
+   <version>2.4</version>
+  </dependency>
+  <dependency>
+   <groupId>commons-collections</groupId>
+   <artifactId>commons-collections</artifactId>
+   <version>3.2.1</version>
+  </dependency>
+  <dependency>
+   <groupId>org.bouncycastle</groupId>
+   <artifactId>bcprov-jdk15</artifactId>
+   <version>1.40</version>
+  </dependency>
+ </dependencies>
+ 
+ <build>
+  <plugins>
+   <plugin>
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-war-plugin</artifactId>
     <version>3.2.0</version>
     <configuration>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
-        <webResources>
-            <resource>
-               <directory>${project.basedir}/src/main/resources</directory>
-               <targetPath>WEB-INF/lib</targetPath>
-            </resource>
-        </webResources>
+     <failOnMissingWebXml>false</failOnMissingWebXml>
+     <webResources>
+      <resource>
+       <directory>${project.basedir}/src/main/resources</directory>
+       <targetPath>WEB-INF/lib</targetPath>
+      </resource>
+     </webResources>
     </configuration>
-</plugin>
-</plugins>
-</build>
-
+   </plugin>
+  </plugins>
+ </build>
 </project>
